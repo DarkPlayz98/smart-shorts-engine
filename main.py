@@ -63,7 +63,7 @@ def generate_and_animate_images(prompts):
     # Sliced to prevent chat app markdown corruption
     host = "https://" + "generativelanguage.googleapis.com"
     # THE FINAL FIX: Using the exact preview model string
-    image_url = f"{host}/v1beta/models/gemini-2.5-flash-image-preview:generateContent?key={GEMINI_KEY}"
+    image_url = f"{host}/v1beta/models/gemini-2.5-flash-image:generateContent?key={GEMINI_KEY}"
 
     with open("clip_list.txt", "w") as f_list:
         for i, prompt in enumerate(prompts):
