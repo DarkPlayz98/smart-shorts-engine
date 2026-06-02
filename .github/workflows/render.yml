@@ -1,7 +1,7 @@
 name: Dark's Profito Cloud Render Engine
 
 on:
-  workflow_dispatch: # Allows you to trigger it manually via a button on your phone
+  workflow_dispatch:
 
 jobs:
   build_video:
@@ -9,10 +9,10 @@ jobs:
 
     steps:
       - name: Pull Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Server Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
@@ -29,7 +29,7 @@ jobs:
         run: python main.py
 
       - name: Upload Final Video
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Darks_Profito_Masterpiece
           path: dark_profito_master.mp4
