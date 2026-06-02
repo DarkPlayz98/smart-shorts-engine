@@ -132,7 +132,7 @@ def compile_masterwork():
         print("[-] No clips were generated. Aborting compilation.")
         return
 
-    output_path = "/sdcard/Download/dark_profito_master.mp4"
+    output_path = "dark_profito_master.mp4"
     subprocess.run(
         "ffmpeg -y -f concat -safe 0 -i clip_list.txt -c copy continuous_bg.mp4 -loglevel error",
         shell=True, check=True

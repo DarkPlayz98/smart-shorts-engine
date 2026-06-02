@@ -1,0 +1,35 @@
+name: Dark's Profito Cloud Render Engine
+
+on:
+  workflow_dispatch: # Allows you to trigger it manually via a button on your phone
+
+jobs:
+  build_video:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pull Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Server Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Cloud FFmpeg & Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install requests
+
+      - name: Execute Master Pipeline
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: python main.py
+
+      - name: Upload Final Video
+        uses: actions/upload-artifact@v3
+        with:
+          name: Darks_Profito_Masterpiece
+          path: dark_profito_master.mp4
