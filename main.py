@@ -18,7 +18,7 @@ def check_keys():
 def generate_master_blueprint():
     print("[+] 1. Gemini Flash Extended Engine crafting script and 10 cinematic image prompts...")
     host = "https://" + "generativelanguage.googleapis.com"
-    url = f"{host}/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_KEY}"
+    url = f"{host}/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_KEY}"
     
     prompt = (
         "Write a mesmerizing 60-second voiceover script about financial leverage and the 10X mindset. "
